@@ -12,9 +12,9 @@
       <siteMapNode url="~/admin/FriendLinkAdd.aspx" title="添加友情链接"  description="" />
       <siteMapNode url="~/admin/FriendLink.aspx" title="管理友情链接"  description="" />
     </siteMapNode>
-    <siteMapNode url="" title="新闻审核"  description="">
-      <siteMapNode url="~/admin/BlogsAudit.aspx" title="审核新闻"  description="" />
-      <siteMapNode url="~/admin/BlogsCategory.aspx" title="管理新闻类别"  description="" />
+    <siteMapNode url="" title="博文审核"  description="">
+      <siteMapNode url="~/admin/BlogsAudit.aspx" title="审核博文"  description="" />
+      <siteMapNode url="~/admin/BlogsCategory.aspx" title="管理博文类别"  description="" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

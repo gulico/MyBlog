@@ -1,14 +1,14 @@
 ﻿/*注册页面的CSS*/
-/*《ASP.NET数据库网站设计教程（C#版）第2版》配套教学资源-刘瑞新主编-电子工业出版社2015.1 */
 
 /*总体设置*/
 /*基本信息*/
 body
 {
+    width:auto;
+    height:auto;
     font-size: 14px;
     line-height: 20px;
     font-family: 微软雅黑;
-    background: :red;
     margin: 0px; /*上右下左边距为0像素*/
     padding: 0;
 }
@@ -16,26 +16,26 @@ body
 /*页面层容器*/
 #container
 {
-    width: 965px;
-    margin: 0 auto;
+    width: auto;
+    margin: 0 5px 0 0px;
 }
 
 /*页面头部Logo*/
 #header
 {
     height: 80px;
-    background: yellow;
-    background: url('../Images/banner.jpg') no-repeat; /*加入标题中的背景图片*/
+    background: url('../Images/banner.jpg');
+    width: 1440px;
 }
 /*导航区*/
 #nav
 {
-    width: 960px;
+    width: 1440px;
     height: 22px;
     text-align: left;
     padding: 5px 0px 0px 0px;
     color: White;
-    background-image: url('../Images/nav_bg.jpg');
+    background-color:#E0EEEE;
 }
 #nav a
 {
@@ -45,11 +45,11 @@ body
 /*您现在的位置,眉毛*/
 #breadcrumb
 {
-    width: 780px;/*960-180=780 */
-    line-height: 20px;
+    width: 1260px;/*960-180=780 */
+    line-height: 40px;
     text-align: left;
     margin: 0px;
-    background-color: #d6e9fc; /* 背景色为淡栏色*/
+    background-color: #E0EEEE; /* 背景色为淡栏色*/
     padding-left: 180px;
 }
 #breadcrumb a
@@ -70,7 +70,7 @@ body
     float: left; /*浮动居左*/
     width: 180px; /*左栏宽度*/
     height: 500px; /*不能省略*/
-    background: #d6e9fc;
+    background:  #E0EEEE;
 }
 /*主要内容，用于Default.hml*/
 #right-main
@@ -78,7 +78,6 @@ body
     float: left; /*浮动居右*/ /*clear: right; 不允许右侧存在浮动*/
     width: 779px; /*设定宽度*/
     padding: 0;
-    background: #e7f2fd;
     text-align: center; /*本块中的内容居中*/
     height: 498px;
     margin: 0px;
@@ -89,9 +88,10 @@ body
 {
     clear: both;
     padding: 5px 0px 5px 0px;
-    background-image: url('../Images/foot_bg.jpg');
+    background-color:#000000;
     text-align: center;
-    width: 960px;
+    width: 1440px;
+    height: 32px;
 }
 
 /*--------------------------------------------------*/

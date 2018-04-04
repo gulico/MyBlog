@@ -19,9 +19,9 @@
         </div>
         <div id="nav">
             <asp:Menu ID="Menu1" runat="server" Height="16px" Orientation="Horizontal" RenderingMode="Table"
-                Width="278px" CssClass="tdleft">
+                Width="278px" CssClass="tdleft" ForeColor="Black">
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/HomeNews.aspx" Text="新闻首页" Value="新闻首页"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/HomeNews.aspx" Text="博客首页" Value="博客首页"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Admin/HomeAdmin.aspx" Text="后台管理主页" Value="后台管理主页">
                     </asp:MenuItem>
                 </Items>
@@ -38,7 +38,8 @@
                 <!--左侧边栏-开始-->
                 <div class="treeview">
                     <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" Height="353px"
-                        Width="166px">
+                        Width="166px" Font-Bold="False" Font-Size="Small" Font-Strikeout="False">
+                        <NodeStyle BorderStyle="None" NodeSpacing="5px" />
                     </asp:TreeView>
                 </div>
                 <div class="logined">
