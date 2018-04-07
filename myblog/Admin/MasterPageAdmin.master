@@ -45,7 +45,7 @@
                 <div class="logined">
                     管理员：<asp:Label ID="lblAdminName" runat="server"></asp:Label><br />
                     权限：<asp:Label ID="lblAdminGradeName" runat="server"></asp:Label><br />
-               
+                    <asp:LinkButton ID="lbtnExit" runat="server" OnClick="lbtnExit_Click" BackColor="White" Height="25px" Width="100px">退出后台管理</asp:LinkButton>
                 </div>
                 <!--左侧边栏-结束-->
             </div>
