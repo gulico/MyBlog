@@ -62,3 +62,30 @@
 过程：
 （1）下载bootstap3.0预编译文件
 （2）写sqlhelper类
+
+周次：5
+日期：4.7
+类型：设计
+目的：Admin.aspx+AdminAdd.aspx+BlogsAudit.aspx页面
+过程：
+（1）Admin.aspx修改管理员页面
+（2）AdminAdd.aspx添加管理员页面
+（3）BlogsAudit.aspx博客文章审核页面
+
+周次：5
+日期：4.8
+类型：准备
+目的：修改MYSQL数据库改成sql server
+过程：
+（1）由于mysql经过我们的尝试不足以满足我们的需求，于是我们决定改成sql server数据库
+（2）安装过程中由于缺少一些组件所以不得不选择初始化服务器
+（3）安装需要的组件
+（4）安装sql server 2012
+
+周次：4
+日期：4.8
+类型：每周小结
+内容：
+（1）导入bootstrap预编译文件+添加sqlhelper类
+（2）Admin.aspx+AdminAdd.aspx+BlogsAudit.aspx页面
+（3）修改MYSQL数据库改成sql server
