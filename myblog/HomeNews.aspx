@@ -25,37 +25,40 @@
             float: right;
         }
         /*定义三栏的主页HomeNews.htm----------------------------结束--*/
-        /*定义博客块-----------------------------------开始--*/
-        /*博客块*/
-        .News_box
+        /*定义新闻块-----------------------------------开始--*/
+        /*新闻块*/
+        .news_box
         {
             width: 100%;
             margin-bottom: 10px; /*边栏间距*/
         }
-        /*博客栏目标题*/
-        .News_box .News_box_head
+        /*新闻栏目标题*/
+        .news_box .news_box_head
         {
+            font-size:20px;
+            font-family: 幼圆, 'Amarante' , cursive;
             font-weight: bold;
             color: #105cb6;
-            background-color: #EAF6FF;
+            background-color:rgba(245,245,245,0.3);
+
             text-align: left;
             height: 15px;
-            padding: 3px;
-            border: 1px solid #A2D8FF;
+            padding: 10px;
         }
-        /*博客内容区*/
-        .News_box .News_box_content
+        /*新闻内容区*/
+        .news_box .news_box_content
         {
-            color: blue;
-            background-color: #FBFDFF;
+            font-size:13px;
+            color: white;
+background-color:rgba(245,245,245,0.3);
+
             line-height: 20px;
             text-align: left;
-            padding: 5px;
-            border: 1px solid #c3e0f5;
+            padding: 8px;
         }
-        /*定义博客块-----------------------------------结束--*/
+        /*定义新闻块-----------------------------------结束--*/
         
-        /*右侧边栏区，登录、最新博客、友情链接---------开始--*/
+        /*右侧边栏区，登录、最新新闻、友情链接---------开始--*/
         /*右侧边栏块*/
         .sidebar_box
         {
@@ -68,8 +71,9 @@
             font-size: 14px;
             font-weight: bold;
             color: #83443B;
-            background-color: #FFED9C;
-            border: 1px solid #FFD924;
+background-color:rgba(245,245,245,0.3);
+
+            /*border: 1px solid #FFD924;*/
             text-align: center;
             height: 15px;
             padding: 3px;
@@ -79,12 +83,12 @@
         {
             font-size: 14px;
             color: #000000;
-            background-color: #FFFCEE;
+background-color:rgba(245,245,245,0.3);
+
             text-align: left;
             line-height: 20px;
             min-height: 116px;
             padding: 3px;
-            border: 1px solid #FFD924;
         }
         /*友情链接图片的尺寸*/
         .friend-pic
@@ -103,7 +107,7 @@
             width: 960px;
             height: 90px;
         }
-        /*右侧边栏区，登录、最新博客、友情链接---------结束--*/
+        /*右侧边栏区，登录、最新新闻、友情链接---------结束--*/
         /*定义三栏的主页NewsHome.htm----------------------------结束--*/
     </style>
 </asp:Content>
@@ -111,11 +115,11 @@
     <!--页面主体-开始-->
     <div id="left-content">
         <!--左侧边栏-开始-->
-        <div class="News_box">
-            <div class="News_box_head">
-                国内博客&nbsp;<a href="NewsCategory.aspx?id=1"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="news_box">
+            <div class="news_box_head">
+                国内新闻&nbsp;<a href="NewsCategory.aspx?id=1"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="News_box_content">
+            <div class="news_box_content">
                 <asp:Repeater ID="repChina" runat="server">
                     <ItemTemplate>
                         <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
@@ -123,11 +127,11 @@
                 </asp:Repeater>
             </div>
         </div>
-        <div class="News_box">
-            <div class="News_box_head">
+        <div class="news_box">
+            <div class="news_box_head">
                 财经股票&nbsp;<a href="NewsCategory.aspx?id=3"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="News_box_content">
+            <div class="news_box_content">
                 <asp:Repeater ID="repFinance" runat="server">
                     <ItemTemplate>
                         <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
@@ -135,11 +139,11 @@
                 </asp:Repeater>
             </div>
         </div>
-        <div class="News_box">
-            <div class="News_box_head">
+        <div class="news_box">
+            <div class="news_box_head">
                 饮食健康&nbsp;<a href="NewsCategory.aspx?id=5"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="News_box_content">
+            <div class="news_box_content">
                 <asp:Repeater ID="repHealth" runat="server">
                     <ItemTemplate>
                         <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
@@ -150,11 +154,11 @@
     </div>
     <div id="middle-content">
         <!--中部-开始-->
-        <div class="News_box">
-            <div class="News_box_head">
-                国际博客&nbsp;<a href="NewsCategory.aspx?id=2"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="news_box">
+            <div class="news_box_head">
+                国际新闻&nbsp;<a href="NewsCategory.aspx?id=2"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="News_box_content">
+            <div class="news_box_content">
                 <asp:Repeater ID="repForeign" runat="server">
                     <ItemTemplate>
                         <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
@@ -162,11 +166,11 @@
                 </asp:Repeater>
             </div>
         </div>
-        <div class="News_box">
-            <div class="News_box_head">
+        <div class="news_box">
+            <div class="news_box_head">
                 娱乐明星&nbsp;<a href="NewsCategory.aspx?id=4"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="News_box_content">
+            <div class="news_box_content">
                 <asp:Repeater ID="repPastime" runat="server">
                     <ItemTemplate>
                         <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
@@ -174,11 +178,11 @@
                 </asp:Repeater>
             </div>
         </div>
-        <div class="News_box">
-            <div class="News_box_head">
+        <div class="news_box">
+            <div class="news_box_head">
                 自然旅游&nbsp;<a href="NewsCategory.aspx?id=6"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="News_box_content">
+            <div class="news_box_content">
                 <asp:Repeater ID="repNature" runat="server">
                     <ItemTemplate>
                         <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />

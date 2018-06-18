@@ -3,6 +3,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
+	#main-content
+        {
+            line-height: 30px;
+            background-color:rgba(245,245,245,0.3);
+            border: 1px solid #DCDCDC;
+            margin: 0px auto;
+        }
         .table_content
         {
             margin: 10px auto; /*重新定义表格层容器的上距*/

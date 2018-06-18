@@ -19,7 +19,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!--页面主体-开始-->
-    <div id="main-content">
+    <div>
         <p>
             本网站正在建设中......</p>
     </div>

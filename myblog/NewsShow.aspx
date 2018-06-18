@@ -9,8 +9,7 @@
         {
             float: left;
             width: 316px;
-            height: 100%;
-            background-color: #e6e8eb; /*背景色为淡蓝色,调试用，完成后最好删掉*/
+            /*background-color: #e7f2fb;/*背景色为淡蓝色*/
             margin-bottom: 10px;
         }
         /*主要内容*/
@@ -18,8 +17,8 @@
         {
             float: right;
             margin-left: 5px; /*与左侧栏的间距*/
-            width: 632px; /*960-(316+2+5+2+3)=632*/
-            height: 100%; /*background: #EEE;调试用，完成后最好删掉*/
+            width: 628px; /*956-(316+2+5+2+3)=632*/
+            height: 100%; /*background: #EEE;*/
             margin-bottom: 10px;
         }
         
@@ -35,23 +34,22 @@
         .new_news_box .new_news_head
         {
             font-weight: bold;
-            color: #83443B;
-            background-color: #FFED9C;
+            color: #000000;
+            background-color: #F5F5F5;
             text-align: center;
             height: 15px;
             padding: 3px;
-            border: 1px solid #FFD924;
+            border: 1px solid #DCDCDC;
         }
         /*最新博客内容*/
         .new_news_box .new_news_content
         {
             color: #000000;
-            min-height: 100%;
-            background-color: #FFFCEE;
+            background-color: #F5F5F5;
             line-height: 20px;
             text-align: left;
             padding: 5px;
-            border: 1px solid #FFD924;
+            border: 1px solid #DCDCDC;
         }
         /*==用于NewsCategory.aspx,NewsShow.aspx中的最新博客。结束====*/
         
@@ -64,11 +62,11 @@
             font-size: 16px;
             font-family: 黑体, Helvetica, sans-serif;
             color: #000000;
-            background-color: #EAF6FF;
+            background-color: #F5F5F5;
             text-align: center;
             height: 25px;
             padding-top: 8px;
-            border: 1px solid #A2D8FF;
+            border: 1px solid #DCDCDC;
         }
         /*博客区中的作者*/.news_author
         {
@@ -79,7 +77,7 @@
             text-align: center;
             height: 20px;
             padding-top: 3px;
-            border: 1px solid #c3e0f5;
+            border: 1px solid #DCDCDC;
         }
         
         /*博客区中的图片，只显示一张图片*/.news_picture
@@ -90,7 +88,7 @@
             padding: 10px 0px 0px 0px; 
             border-style: solid;
             border-width: 1px 1px 0px 1px;/*下边线不显示*/
-            border-color: #c3e0f5;
+            border-color: #DCDCDC;
         }
         /*博客区中的内容*/.news_content
         {
@@ -102,7 +100,7 @@
             padding: 5px 10px 10px 10px;
             border-style: solid;
             border-width: 0px 1px 1px 1px; /* 上边线不显示*/
-            border-color: #c3e0f5;          
+            border-color: #DCDCDC;          
         }
         
         /*右侧评论区,写在#main中*/#review
@@ -120,7 +118,7 @@
             height: 22px;
             padding-top: 6px;
             padding-left: 3px;
-            border: 1px solid #A2D8FF;
+            border: 1px solid #DCDCDC;
         }
         /*评论区中的内容*/.review_reviewer
         {
@@ -130,7 +128,7 @@
             line-height: 20px;
             text-align: left;
             padding-top: 0px;
-            border: 1px solid #c3e0f5;
+            border: 1px solid #DCDCDC;
         }
         /*评论区中的内容*/.review_content
         {
@@ -140,7 +138,7 @@
             line-height: 20px;
             text-align: left;
             padding-top: 0px;
-            border: 1px solid #c3e0f5;
+            border: 1px solid #DCDCDC;
         }
         /*评论区中的输入内容*/.review_content_new
         {
@@ -150,7 +148,7 @@
             line-height: 20px;
             text-align: right;
             padding: 10px;
-            border: 1px solid #c3e0f5;
+            border: 1px solid #DCDCDC;
         }
         .review1
         {
@@ -161,7 +159,7 @@
             line-height: 20px;
             text-align: left;
             padding-top: 8px;
-            border: 1px solid #c3e0f5;
+            border: 1px solid #DCDCDC;
         }
         .review2
         {
@@ -172,7 +170,7 @@
             line-height: 20px;
             text-align: left;
             padding-top: 8px;
-            border: 1px solid #c3e0f5;
+            border: 1px solid #DCDCDC;
         }
         .style1
         {

@@ -6,9 +6,9 @@
         #main-content
         {
             line-height: 25px;
-            background-color: #EAF6FF;
+            background-color:rgba(245,245,245,0.3);
+            border: 1px solid #DCDCDC;
             padding: 10px;
-            border: 1px solid #A2D8FF;
             margin: 0px auto;
         }
         p
