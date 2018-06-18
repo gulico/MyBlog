@@ -6,8 +6,8 @@
         #main-content
         {
             line-height: 30px;
-            background-color: #EAF6FF;
-            border: 1px solid #A2D8FF;
+            background-color:rgba(245,245,245,0.3);
+            border: 1px solid #DCDCDC;
             margin: 0px auto;
         }
         .table_content
