@@ -19,9 +19,9 @@
         </div>
         <div id="nav">
             <asp:Menu ID="Menu1" runat="server" Height="16px" Orientation="Horizontal" RenderingMode="Table"
-                Width="278px" CssClass="tdleft" ForeColor="Black">
+                Width="278px" CssClass="tdleft">
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/HomeNews.aspx" Text="博客首页" Value="博客首页"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/HomeNews.aspx" Text="新闻首页" Value="新闻首页"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Admin/HomeAdmin.aspx" Text="后台管理主页" Value="后台管理主页">
                     </asp:MenuItem>
                 </Items>
@@ -38,14 +38,13 @@
                 <!--左侧边栏-开始-->
                 <div class="treeview">
                     <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" Height="353px"
-                        Width="166px" Font-Bold="False" Font-Size="Small" Font-Strikeout="False">
-                        <NodeStyle BorderStyle="None" NodeSpacing="5px" />
+                        Width="166px">
                     </asp:TreeView>
                 </div>
                 <div class="logined">
                     管理员：<asp:Label ID="lblAdminName" runat="server"></asp:Label><br />
                     权限：<asp:Label ID="lblAdminGradeName" runat="server"></asp:Label><br />
-                    <asp:LinkButton ID="lbtnExit" runat="server" OnClick="lbtnExit_Click" BackColor="White" Height="25px" Width="100px">退出后台管理</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnExit" runat="server" OnClick="lbtnExit_Click">退出后台管理</asp:LinkButton>
                 </div>
                 <!--左侧边栏-结束-->
             </div>
@@ -60,8 +59,8 @@
         </div>
         <div id="footer">
             <!--页脚-开始-->
-            <span style="color: #fff;">copyright© 2016-2017 浙江A&F信息工程学院版权所有<br />
-                联系我们 | 767293861@qq.com</span>
+            <span style="color: #fff;">2010-2020 版权所有<br />
+                地址：中国•浙江 浙江农林大学信息工程学院</span>
             <!--页脚-结束-->
         </div>
         <!--页面层容器-结束-->

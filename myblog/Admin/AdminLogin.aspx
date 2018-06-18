@@ -73,7 +73,7 @@
         <div id="header">
             <!--页面头部-->
         </div>
-        <div id="content" >
+        <div id="content" style="background-color: #ffffff">
             <!--页面主体-->
             <div id="loginwarp">
                 <div>
@@ -159,8 +159,8 @@
             </div>
         </div>
         <div id="footer" style="color: White">
-            copyright© 2016-2017 浙江A&F信息工程学院版权所有<br />
-                联系我们 | 767293861@qq.com
+            Copyright 2012-2013 版权所有<br />
+            地址：中国•浙江 浙江农林大学信息工程学院
         </div>
     </div>
     </form>

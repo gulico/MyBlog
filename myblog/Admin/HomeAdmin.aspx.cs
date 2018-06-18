@@ -9,6 +9,9 @@ public partial class Admin_HomeAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["AdminName"] == null)  //如果没有登录，则打开后台登录页
+        {
+            Response.Redirect("AdminLogin.aspx"); //去后台登录页面
+        }
     }
 }
