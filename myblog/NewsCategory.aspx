@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyBlogMasterPage.master" AutoEventWireup="true"
-    CodeFile="MyBlogCategory.aspx.cs" Inherits="MyBlogCategory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewsMasterPage.master" AutoEventWireup="true"
+    CodeFile="NewsCategory.aspx.cs" Inherits="NewsCategory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
-        /*定义两栏的栏目页MyBlogCategory.htm----------------------------开始--*/
+        /*定义两栏的栏目页NewsCategory.htm----------------------------开始--*/
         /*左边的主要内容*/
         #left-main-content
         {
@@ -21,15 +21,15 @@
             margin-left: 7px;
         }
         
-        /*==用于MyBlogCategory.aspx,开始====*/
+        /*==用于NewsCategory.aspx,开始====*/
         /*分类博客列表区*/
-        #MyBlog_list
+        #news_list
         {
             width: 100%;
             background-color: #e7f2fb; /*背景色为淡蓝色,调试用，完成后最好删掉*/
         }
         /*博客列表区中的标题*/
-        .MyBlog_list_title
+        .news_list_title
         {
             font-size: 16px;
             font-family: 黑体, Helvetica, sans-serif;
@@ -40,7 +40,7 @@
             height: 25px;
             padding-top: 8px;
         }
-        /*博客列表区中的列表内容*/.MyBlog_list_content
+        /*博客列表区中的列表内容*/.news_list_content
         {
             color: #000000;
             font-family: 宋体, Helvetica, sans-serif;
@@ -50,26 +50,26 @@
             text-align: left;
             padding: 10px;
         }
-        /*博客列表区中的页码*/.MyBlog_list_page
+        /*博客列表区中的页码*/.news_list_page
         {
             line-height: 20px;
             text-align: center;
             height: 20px;
             border: 1px solid #c3e0f5;
         }
-        /*==用于MyBlogCategory.aspx,结束====*/
+        /*==用于NewsCategory.aspx,结束====*/
         
         
-        /*==用于MyBlogCategory.aspx,MyBlogShow.aspx中的最新博客。开始====*/
+        /*==用于NewsCategory.aspx,NewsShow.aspx中的最新博客。开始====*/
         
         /*最新博客块*/
-        .new_MyBlog_box
+        .new_news_box
         {
             width: 100%;
             margin-bottom: 10px; /*底边与footer的间距*/
         }
         /*最新博客标题*/
-        .new_MyBlog_box .new_MyBlog_head
+        .new_news_box .new_news_head
         {
             font-weight: bold;
             color: #83443B;
@@ -80,7 +80,7 @@
             border: 1px solid #FFD924;
         }
         /*最新博客内容*/
-        .new_MyBlog_box .new_MyBlog_content
+        .new_news_box .new_news_content
         {
             color: #000000;
             background-color: #FFFCEE;
@@ -89,24 +89,24 @@
             padding: 5px;
             border: 1px solid #FFD924;
         }
-        /*==用于MyBlogCategory.aspx,MyBlogShow.aspx中的最新博客。结束====*/
+        /*==用于NewsCategory.aspx,NewsShow.aspx中的最新博客。结束====*/
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!--页面主体-开始-->
     <div id="left-main-content">
         <!--左侧主内容-开始-->
-        <div id="MyBlog_list">
-            <div class="MyBlog_list_title">
+        <div id="news_list">
+            <div class="news_list_title">
                 博客列表
             </div>
-            <div class="MyBlog_list_content">
+            <div class="news_list_content">
             <table cellpadding="0" cellspacing="0" style="width: 96%;" border="0">
-                <asp:Repeater ID="repMyBlogCategoryList" runat="server">
+                <asp:Repeater ID="repNewsCategoryList" runat="server">
                     <ItemTemplate>
                         <tr>
                             <td style="width: 375px;">
-                                ·<a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>"><%#Eval("MyBlogTitle") %></a></td>
+                                ·<a href="NewsShow.aspx?id=<%#Eval("NewsID") %>"><%#Eval("NewsTitle") %></a></td>
                             <td>
                                 <%#Eval("CreatedDateTime","{0:g}") %>
                             </td>
@@ -115,7 +115,7 @@
                 </asp:Repeater>
             </table>
             </div>
-            <div class="MyBlog_list_page">
+            <div class="news_list_page">
             <asp:LinkButton ID="lbtnFirstPage" runat="server" OnClick="lbtnFirstPage_Click">首页</asp:LinkButton>
             <asp:LinkButton ID="lbtnpritPage" runat="server" OnClick="lbtnpritPage_Click">上一页</asp:LinkButton>
             <asp:LinkButton ID="lbtnNextPage" runat="server" OnClick="lbtnNextPage_Click">下一页</asp:LinkButton>
@@ -128,24 +128,24 @@
     </div>
     <div id="right-sidebar">
         <!--右侧边栏-开始-->
-        <div class="new_MyBlog_box">
-            <div class="new_MyBlog_head">
+        <div class="new_news_box">
+            <div class="new_news_head">
                 最新消息</div>
-            <div class="new_MyBlog_content">
+            <div class="new_news_content">
                 <asp:Repeater ID="repNew" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
-        <div class="new_MyBlog_box">
-            <div class="new_MyBlog_head">
+        <div class="new_news_box">
+            <div class="new_news_head">
                 阅读排行</div>
-            <div class="new_MyBlog_content">
+            <div class="new_news_content">
                  <asp:Repeater ID="repSequence" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>

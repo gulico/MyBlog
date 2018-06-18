@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyBlogMasterPage.master" AutoEventWireup="true"
-    CodeFile="HomeMyBlog.aspx.cs" Inherits="HomeMyBlog" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewsMasterPage.master" AutoEventWireup="true"
+    CodeFile="HomeNews.aspx.cs" Inherits="HomeNews" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
-        /*定义三栏的主页HomeMyBlog.htm----------------------------开始--*/
+        /*定义三栏的主页HomeNews.htm----------------------------开始--*/
         /*左侧栏---------------------------------------------------*/
         #left-content
         {
@@ -24,16 +24,16 @@
             width: 31%;
             float: right;
         }
-        /*定义三栏的主页HomeMyBlog.htm----------------------------结束--*/
+        /*定义三栏的主页HomeNews.htm----------------------------结束--*/
         /*定义博客块-----------------------------------开始--*/
         /*博客块*/
-        .MyBlog_box
+        .News_box
         {
             width: 100%;
             margin-bottom: 10px; /*边栏间距*/
         }
         /*博客栏目标题*/
-        .MyBlog_box .MyBlog_box_head
+        .News_box .News_box_head
         {
             font-weight: bold;
             color: #105cb6;
@@ -44,7 +44,7 @@
             border: 1px solid #A2D8FF;
         }
         /*博客内容区*/
-        .MyBlog_box .MyBlog_box_content
+        .News_box .News_box_content
         {
             color: blue;
             background-color: #FBFDFF;
@@ -104,45 +104,45 @@
             height: 90px;
         }
         /*右侧边栏区，登录、最新博客、友情链接---------结束--*/
-        /*定义三栏的主页MyBlogHome.htm----------------------------结束--*/
+        /*定义三栏的主页NewsHome.htm----------------------------结束--*/
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!--页面主体-开始-->
     <div id="left-content">
         <!--左侧边栏-开始-->
-        <div class="MyBlog_box">
-            <div class="MyBlog_box_head">
-                时事&nbsp;<a href="MyBlogCategory.aspx?id=1"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="News_box">
+            <div class="News_box_head">
+                国内博客&nbsp;<a href="NewsCategory.aspx?id=1"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="MyBlog_box_content">
+            <div class="News_box_content">
                 <asp:Repeater ID="repChina" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
-        <div class="MyBlog_box">
-            <div class="MyBlog_box_head">
-                财经&nbsp;<a href="MyBlogCategory.aspx?id=3"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="News_box">
+            <div class="News_box_head">
+                财经股票&nbsp;<a href="NewsCategory.aspx?id=3"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="MyBlog_box_content">
+            <div class="News_box_content">
                 <asp:Repeater ID="repFinance" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
-        <div class="MyBlog_box">
-            <div class="MyBlog_box_head">
-                健康&nbsp;<a href="MyBlogCategory.aspx?id=5"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="News_box">
+            <div class="News_box_head">
+                饮食健康&nbsp;<a href="NewsCategory.aspx?id=5"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="MyBlog_box_content">
+            <div class="News_box_content">
                 <asp:Repeater ID="repHealth" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -150,38 +150,38 @@
     </div>
     <div id="middle-content">
         <!--中部-开始-->
-        <div class="MyBlog_box">
-            <div class="MyBlog_box_head">
-                体育&nbsp;<a href="MyBlogCategory.aspx?id=2"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="News_box">
+            <div class="News_box_head">
+                国际博客&nbsp;<a href="NewsCategory.aspx?id=2"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="MyBlog_box_content">
+            <div class="News_box_content">
                 <asp:Repeater ID="repForeign" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
-        <div class="MyBlog_box">
-            <div class="MyBlog_box_head">
-                娱乐&nbsp;<a href="MyBlogCategory.aspx?id=4"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="News_box">
+            <div class="News_box_head">
+                娱乐明星&nbsp;<a href="NewsCategory.aspx?id=4"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="MyBlog_box_content">
+            <div class="News_box_content">
                 <asp:Repeater ID="repPastime" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
-        <div class="MyBlog_box">
-            <div class="MyBlog_box_head">
-                旅游&nbsp;<a href="MyBlogCategory.aspx?id=6"><img alt="more" src="Images/more2.jpg" /></a>
+        <div class="News_box">
+            <div class="News_box_head">
+                自然旅游&nbsp;<a href="NewsCategory.aspx?id=6"><img alt="more" src="Images/more2.jpg" /></a>
             </div>
-            <div class="MyBlog_box_content">
+            <div class="News_box_content">
                 <asp:Repeater ID="repNature" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -192,11 +192,11 @@
         <!--右侧边栏-开始-->
         <div class="sidebar_box">
             <div class="sidebar_box_head">
-                最新发布</div>
+                最新消息</div>
             <div class="sidebar_box_content">
                 <asp:Repeater ID="repNew" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -207,7 +207,7 @@
             <div class="sidebar_box_content">
                 <asp:Repeater ID="repSequence" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%>[<%#Eval("ShowPageCount") %>]</a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%>[<%#Eval("ShowPageCount") %>]</a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>

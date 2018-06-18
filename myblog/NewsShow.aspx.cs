@@ -5,22 +5,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;//添加引用SQL Server;
+//<!--*《ASP.NET数据库网站设计教程（C#版）第2版》配套教学资源-刘瑞新主编-电子工业出版社2015.1 可以自由使用，但请不要删除本标志，引用请注明出处*-->
 
-public partial class MyBlogShow : System.Web.UI.Page
+public partial class NewsShow : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        imgMyBlogPicture.Visible = false;//初始不显示博客图片
-        if (Session["userFromHomeMyBlog"] == null)  //如果没有从HomeMyBlog.aspx登录，则定向到HomeMyBlog.aspx
+        imgNewsPicture.Visible = false;//初始不显示博客图片
+        if (Session["userFromHomeNews"] == null)  //如果没有从HomeNews.aspx登录，则定向到HomeNews.aspx
         {
-            Response.Redirect("HomeMyBlog.aspx"); //定向到HomeMyBlog.aspx
+            Response.Redirect("HomeNews.aspx"); //定向到HomeNews.aspx
         }
         if (!Page.IsPostBack)
         {
-            ShowNewMyBlogList();//显示“最新博客”名称列表
-            ShowSequenceMyBlogList();//显示“阅读排行”列表 
-            ShowMyBlog();//显示选定的博客内容
-            ShowMyBlogAllUserReview();//显示选定博客的所有评论
+            ShowNewNewsList();//显示“最新博客”名称列表
+            ShowSequenceNewsList();//显示“阅读排行”列表 
+            ShowNews();//显示选定的博客内容
+            ShowNewsAllUserReview();//显示选定博客的所有评论
         }
         if (Request.Cookies["username"] == null)  //如果用户没有登录,在UserLogin.asp.cs中保存
         {
@@ -36,24 +37,24 @@ public partial class MyBlogShow : System.Web.UI.Page
             lblUserName.Text = Request.Cookies["username"].Value;  //读取指定Cookie的值，赋给变量,显示已经登录的用户名
         }
     }
-    private void ShowMyBlog()
+    private void ShowNews()
     {   //显示详细博客内容
-        string sqlStr = "select MyBlogID, MyBlogTitle, MyBlogAuthor, CreatedDateTime, MyBlogPicture, MyBlogContent, ShowPageCount from MyBlog where MyBlogID ='" + Request.QueryString["id"] + "'";
+        string sqlStr = "select NewsID, NewsTitle, NewsAuthor, CreatedDateTime, NewsPicture, NewsContent, ShowPageCount from News where NewsID ='" + Request.QueryString["id"] + "'";
         SqlDataReader reader = SqlHelper.GetExecuteReader(sqlStr);
-        string MyBlogPicture = "";
+        string newsPicture = "";
         if (reader.HasRows)
         {
             while (reader.Read())
             {
-                lblMyBlogTitle.Text = reader["MyBlogTitle"].ToString();//博客标题
-                lblMyBlogAuthor.Text = reader["MyBlogAuthor"].ToString();//博客来源、作者
-                MyBlogPicture = reader["MyBlogPicture"].ToString();//博客图片名
-                if (MyBlogPicture != "temp.jpg".Trim()) //如果保存在表中的博客图片名称不是一个标识名称temp.jpg
+                lblNewsTitle.Text = reader["NewsTitle"].ToString();//博客标题
+                lblNewsAuthor.Text = reader["NewsAuthor"].ToString();//博客来源、作者
+                newsPicture = reader["NewsPicture"].ToString();//博客图片名
+                if (newsPicture != "temp.jpg".Trim()) //如果保存在表中的博客图片名称不是一个标识名称temp.jpg
                 {
-                    imgMyBlogPicture.ImageUrl = "~/Admin/UploadedImages/MyBlogPictures/" + MyBlogPicture;//博客图片的路径和名称
-                    imgMyBlogPicture.Visible = true;//显示博客图片
+                    imgNewsPicture.ImageUrl = "~/Admin/UploadedImages/NewsPictures/" + newsPicture;//博客图片的路径和名称
+                    imgNewsPicture.Visible = true;//显示博客图片
                 }
-                lblMyBlogContent.Text = reader["MyBlogContent"].ToString();//博客内容
+                lblNewsContent.Text = reader["NewsContent"].ToString();//博客内容
                 lblCreatedDateTime.Text = reader["CreatedDateTime"].ToString();//发布时间
                 lblShowPageCount.Text = reader["ShowPageCount"].ToString();//浏览次数
             }
@@ -62,36 +63,36 @@ public partial class MyBlogShow : System.Web.UI.Page
         SqlHelper.CloseConnection();//关闭连接
 
         //浏览的网页数加1，单击数加1
-        string sqlStr1 = "update MyBlog set ShowPageCount = ShowPageCount + 1 where MyBlogID =" + Request.QueryString["id"];
+        string sqlStr1 = "update News set ShowPageCount = ShowPageCount + 1 where NewsID =" + Request.QueryString["id"];
         SqlHelper.GetExecuteNonQuery(sqlStr1);
     }
-    private void ShowNewMyBlogList()
+    private void ShowNewNewsList()
     {   //显示“最新博客”名称列表
-        string sqlStr = "select top 20 MyBlogID, MyBlogTitle from MyBlog where IsPass=1 order by CreatedDateTime desc";
+        string sqlStr = "select top 20 NewsID, NewsTitle from News where IsPass=1 order by CreatedDateTime desc";
         SqlDataReader reader = SqlHelper.GetExecuteReader(sqlStr);
         repNew.DataSource = reader;
         repNew.DataBind();
         reader.Close();//关闭读取器
         SqlHelper.CloseConnection();//关闭连接
     }
-    private void ShowSequenceMyBlogList()
+    private void ShowSequenceNewsList()
     {  //显示“阅读排行”列表  
-        string sqlStr = "select top 20 MyBlogID, MyBlogTitle from MyBlog where IsPass=1 order by CreatedDateTime ";
+        string sqlStr = "select top 20 NewsID, NewsTitle from News where IsPass=1 order by CreatedDateTime ";
         SqlDataReader reader = SqlHelper.GetExecuteReader(sqlStr);
         repSequence.DataSource = reader;
         repSequence.DataBind();
         reader.Close();//关闭读取器
         SqlHelper.CloseConnection();//关闭连接
     }
-    private void ShowMyBlogAllUserReview()
+    private void ShowNewsAllUserReview()
     {   //显示博客的所有用户评论
 
-        //计算该博客（MyBlogID）的评论条数
-        string sqlStr1 = "select count(*) from UserReview where MyBlogID =" + Request.QueryString["id"];
+        //计算该博客（NewsID）的评论条数
+        string sqlStr1 = "select count(*) from UserReview where NewsID =" + Request.QueryString["id"];
         lblReviewCount.Text = SqlHelper.GetExecuteScalar(sqlStr1).ToString();
 
-        //列出该博客（MyBlogID）的所有评论，显示次序是：先显示最后的评论
-        string sqlStr = "select UserID, UserName, UserReviewContent, MyBlogID, CreatedDateTime, LoginIP from UserReview where MyBlogID =" + Request.QueryString["id"] + " order by UserReviewID desc";
+        //列出该博客（NewsID）的所有评论，显示次序是：先显示最后的评论
+        string sqlStr = "select UserID, UserName, UserReviewContent, NewsID, CreatedDateTime, LoginIP from UserReview where NewsID =" + Request.QueryString["id"] + " order by UserReviewID desc";
         SqlDataReader reader = SqlHelper.GetExecuteReader(sqlStr);
         repReviewList.DataSource = reader;
         repReviewList.DataBind();
@@ -104,15 +105,15 @@ public partial class MyBlogShow : System.Web.UI.Page
         int userID = Convert.ToInt32(Request.Cookies["userid"].Value);  //读取指定Cookie的值
         string userName = Request.Cookies["username"].Value;  //读取指定Cookie的值
         string userReviewContent = txtUserReviewContent.Text.Trim();
-        int MyBlogID = int.Parse(Request.QueryString["id"]);
+        int newsID = int.Parse(Request.QueryString["id"]);
         DateTime createdDateTime = DateTime.Now;//系统时间
         string loginIP = Request.UserHostAddress.ToString();//IP
 
         if (userReviewContent != null) //如果写有评论
         {
-            if (AddReview(userID, userName, userReviewContent, MyBlogID, createdDateTime, loginIP) > 0) //添加评论
+            if (AddReview(userID, userName, userReviewContent, newsID, createdDateTime, loginIP) > 0) //添加评论
             {
-                Response.Redirect("MyBlogShow.aspx?id=" + Request.QueryString["id"]);
+                Response.Redirect("NewsShow.aspx?id=" + Request.QueryString["id"]);
             }
         }
         else
@@ -120,10 +121,10 @@ public partial class MyBlogShow : System.Web.UI.Page
             Response.Write("<script>alert('请输入评论内容!');history.go(-1);</script>");
         }
     }
-    private int AddReview(int userID, string userName, string userReviewContent, int MyBlogID, DateTime createdDateTime, string loginIP)
+    private int AddReview(int userID, string userName, string userReviewContent, int newsID, DateTime createdDateTime, string loginIP)
     {
         //添加评论
-        string sqlStr = "insert into UserReview(UserID, UserName, UserReviewContent, MyBlogID, CreatedDateTime, LoginIP)" + "Values('" + userID + "','" + userName + "','" + userReviewContent + "','" + MyBlogID + "','" + createdDateTime + "','" + loginIP + "')";
+        string sqlStr = "insert into UserReview(UserID, UserName, UserReviewContent, NewsID, CreatedDateTime, LoginIP)" + "Values('" + userID + "','" + userName + "','" + userReviewContent + "','" + newsID + "','" + createdDateTime + "','" + loginIP + "')";
         int i = SqlHelper.GetExecuteNonQuery(sqlStr);
         return i;
     }
@@ -133,7 +134,7 @@ public partial class MyBlogShow : System.Web.UI.Page
         if (Request.Cookies["username"] != null)
         {
             Response.Cookies["username"].Expires = DateTime.Now.AddDays(-1);//Cookie有效期过期
-            Response.Redirect("MyBlogShow.aspx?id=" + Request.QueryString["id"]);
+            Response.Redirect("NewsShow.aspx?id=" + Request.QueryString["id"]);
         }
     }
     protected void lbtnLogin_Click(object sender, EventArgs e)

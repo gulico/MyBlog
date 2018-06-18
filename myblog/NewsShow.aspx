@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyBlogMasterPage.master" AutoEventWireup="true"
-    CodeFile="MyBlogShow.aspx.cs" Inherits="MyBlogShow" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewsMasterPage.master" AutoEventWireup="true"
+    CodeFile="NewsShow.aspx.cs" Inherits="NewsShow" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
-        /*定义两栏的内容页MyBlogShow.htm----------------------------开始--*/
+        /*定义两栏的内容页NewsShow.htm----------------------------开始--*/
         /*左侧栏*/
         #left-sidebar
         {
@@ -23,16 +23,16 @@
             margin-bottom: 10px;
         }
         
-        /*==用于MyBlogCategory.aspx,MyBlogShow.aspx中的最新博客。开始====*/
+        /*==用于NewsCategory.aspx,NewsShow.aspx中的最新博客。开始====*/
         /*最新博客块*/
-        .new_MyBlog_box
+        .new_news_box
         {
             width: 100%;
             height: 100%; /*为什么不会随着右侧块而加长？？？？？？？？？？？？？？？？？？？？？？？？*/
             margin-bottom: 10px;
         }
         /*最新博客标题*/
-        .new_MyBlog_box .new_MyBlog_head
+        .new_news_box .new_news_head
         {
             font-weight: bold;
             color: #83443B;
@@ -43,7 +43,7 @@
             border: 1px solid #FFD924;
         }
         /*最新博客内容*/
-        .new_MyBlog_box .new_MyBlog_content
+        .new_news_box .new_news_content
         {
             color: #000000;
             min-height: 100%;
@@ -53,13 +53,13 @@
             padding: 5px;
             border: 1px solid #FFD924;
         }
-        /*==用于MyBlogCategory.aspx,MyBlogShow.aspx中的最新博客。结束====*/
+        /*==用于NewsCategory.aspx,NewsShow.aspx中的最新博客。结束====*/
         
-        /*博客内容区*/#MyBlog
+        /*博客内容区*/#news
         {
             width: 100%;
         }
-        /*博客区中的标题*/.MyBlog_title
+        /*博客区中的标题*/.news_title
         {
             font-size: 16px;
             font-family: 黑体, Helvetica, sans-serif;
@@ -70,7 +70,7 @@
             padding-top: 8px;
             border: 1px solid #A2D8FF;
         }
-        /*博客区中的作者*/.MyBlog_author
+        /*博客区中的作者*/.news_author
         {
             color: #000000;
             font-family: 宋体, Helvetica, sans-serif;
@@ -82,7 +82,7 @@
             border: 1px solid #c3e0f5;
         }
         
-        /*博客区中的图片，只显示一张图片*/.MyBlog_picture
+        /*博客区中的图片，只显示一张图片*/.news_picture
         {
             color: #000000;
             background-color: #FBFDFF;
@@ -92,7 +92,7 @@
             border-width: 1px 1px 0px 1px;/*下边线不显示*/
             border-color: #c3e0f5;
         }
-        /*博客区中的内容*/.MyBlog_content
+        /*博客区中的内容*/.news_content
         {
             color: #000000;
             font-family: 宋体, Helvetica, sans-serif;
@@ -184,24 +184,24 @@
     <!--页面主体-开始-->
     <div id="left-sidebar">
         <!--左侧边栏-开始-->
-        <div class="new_MyBlog_box">
-            <div class="new_MyBlog_head">
-                最新发布</div>
-            <div class="new_MyBlog_content">
+        <div class="new_news_box">
+            <div class="new_news_head">
+                最新消息</div>
+            <div class="new_news_content">
                 <asp:Repeater ID="repNew" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
-        <div class="new_MyBlog_box">
-            <div class="new_MyBlog_head">
+        <div class="new_news_box">
+            <div class="new_news_head">
                 阅读排行</div>
-            <div class="new_MyBlog_content">
+            <div class="new_news_content">
                 <asp:Repeater ID="repSequence" runat="server">
                     <ItemTemplate>
-                        <a href="MyBlogShow.aspx?id=<%#Eval("MyBlogID") %>">·<%#Eval("MyBlogTitle").ToString().Trim().Length > 18 ? Eval("MyBlogTitle").ToString().Trim().Substring(0, 18) : Eval("MyBlogTitle").ToString().Trim()%></a><br />
+                        <a href="NewsShow.aspx?id=<%#Eval("NewsID") %>">·<%#Eval("NewsTitle").ToString().Trim().Length > 18 ? Eval("NewsTitle").ToString().Trim().Substring(0, 18) : Eval("NewsTitle").ToString().Trim()%></a><br />
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -209,20 +209,20 @@
     </div>
     <div id="right-main-content">
         <!--右侧主内容-开始-->
-        <div id="MyBlog">
-            <div class="MyBlog_title">
-                <asp:Label ID="lblMyBlogTitle" runat="server"></asp:Label>
+        <div id="news">
+            <div class="news_title">
+                <asp:Label ID="lblNewsTitle" runat="server"></asp:Label>
             </div>
-            <div class="MyBlog_author">
-                来源:<asp:Label ID="lblMyBlogAuthor" runat="server"></asp:Label>&nbsp; &nbsp; 
+            <div class="news_author">
+                来源:<asp:Label ID="lblNewsAuthor" runat="server"></asp:Label>&nbsp; &nbsp; 
                 发表时间:<asp:Label ID="lblCreatedDateTime" runat="server"></asp:Label>&nbsp;&nbsp; 
                 浏览次数:<asp:Label ID="lblShowPageCount" runat="server"></asp:Label>
             </div>
-            <div class="MyBlog_picture">
-                <asp:Image ID="imgMyBlogPicture" runat="server" /> <!--博客图片-->
+            <div class="news_picture">
+                <asp:Image ID="imgNewsPicture" runat="server" /> <!--博客图片-->
             </div>
-            <div class="MyBlog_content">
-                <asp:Label ID="lblMyBlogContent" runat="server"></asp:Label> <!--博客内容-->
+            <div class="news_content">
+                <asp:Label ID="lblNewsContent" runat="server"></asp:Label> <!--博客内容-->
             </div>
         </div>
         <div id="review">
