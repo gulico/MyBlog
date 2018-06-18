@@ -1,8 +1,12 @@
 ﻿/*各网页的公共部分CSS*/
-/*<!--*《ASP.NET数据库网站设计教程（C#版）第2版》配套教学资源-刘瑞新主编-电子工业出版社2015.1 可以自由使用，但请不要删除本标志，引用请注明出处*-->*/
 /*基本信息*/
 body
 {
+    
+    background:url('../Images/timg1.gif') center no-repeat;
+    background-size: cover;
+
+    background-color: #F5F5F5;
     font-size: 14px;
     font-family: 宋体, 'Amarante' , cursive; /*background-color: #fcfcba; 背景色为淡黄色，,调试用，完成后最好删掉*/
     text-align: left;
@@ -21,13 +25,15 @@ body
 /*最顶端区域--------------------------------------------------开始------*/
 #top
 {
+    font-family: 幼圆, 'Amarante' , cursive;
     width: 960px;
     height: 23px;
     color: #666666;
-    background-color: #ECF1F5;
+    /*background-color: #ECF1F5;*/
 }
 #top-left
 {
+    font-family: 幼圆, 'Amarante' , cursive;
     float: left;
     width: 180px;
     line-height: 20px;
@@ -37,6 +43,7 @@ body
 }
 #top-right
 {
+    font-family: 幼圆, 'Amarante' , cursive;
     float: right;
     width: 120px;
     line-height: 20px;
@@ -49,20 +56,21 @@ body
     clear: both;
     height: 80px;
     background: #FFCC99;
-    background: url('../Images/logo.jpg') no-repeat; /*加入标题中的背景图片*/
-    border: 1px solid #72cfd7; /*画浅蓝色实线*/
+    background: url('../Images/logo.png') no-repeat; /*加入标题中的背景图片*/
+    /*border: 1px solid #72cfd7; /*画浅蓝色实线*/*/
     margin-bottom: 10px;
 }
 /*页面头部LOGO--------------------------------------------------结束----*/
 /*菜单导航区----------------------------------------------------开始---*/
 #nav
 {
-    height: 25px;
+    font-family: 幼圆, 'Amarante' , cursive;
+    height: 40px;
     text-align: left;
-    padding: 5px 0px 0px 0px;
-    background-image: url('../Images/bg_menu.png');
-    border: 1px solid #72cfd7; /*四边为1px蓝色线*/
-    margin-bottom: 10px;
+    padding: 10px 0px 0px 0px;
+    /*background-image: url('../Images/bg_menu.png');*/
+   /* border: 1px solid #72cfd7; /*四边为1px蓝色线*/*/
+    margin-bottom: 20px;
 }
 /*菜单导航区----------------------------------------------------结束---*/
 /*页面主体------------------------------------------------------开始---*/
@@ -71,8 +79,8 @@ body
 {
     float: left; /*非常重要，不可少。缺少则造成其包含的DIV块不能包含在本块中*/
     min-height: 180px;
-    background: #e7f2fb; /*背景为淡蓝色*/
-    border: 1px solid #72cfd7; /*四边为1px蓝色线*/
+    /*background: #e7f2fb; /*背景为淡蓝色*/
+   /* border: 1px solid #72cfd7; /*四边为1px蓝色线*/
     width: 954px;
     padding: 2px 2px 2px 2px;
     margin-bottom: 6px;
@@ -84,10 +92,10 @@ body
     margin-top: 10px; /*脚部与主内容垂直间距，可自行修改*/
     clear: both;
     padding: 5px 0px 5px 0px;
-    background-image: url('Images/bg_footer.png');
-    background-color: #EAF6FF;
+   /* background-image: url('Images/bg_footer.png');*/
+    /*background-color: #EAF6FF;*/
     text-align: center;
-    border: 1px solid #72cfd7; /*画浅蓝色实线*/
+   /* border: 1px solid #72cfd7; /*画浅蓝色实线*/
 }
 /*页面底部------------------------------------------------------结束---*/
 /*nav导航区中的菜单----------------------------------开始---*/
