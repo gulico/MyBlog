@@ -50,9 +50,9 @@
             <!--页面主体-结束-->
         </div>
         <div id="footer">
-            Copyright 2010-2020 版权所有&nbsp;<a href="Admin\HomeAdmin.aspx" 
+            Copyright 2018-2020 版权所有&nbsp;<a href="Admin\HomeAdmin.aspx" 
                 style="text-decoration: underline">后台管理</a><br />
-            地址：中国•北京 热线：010-82011666
+            地址：中国•浙江农林大学
         </div>
         <!--页面层容器-结束-->
     </div>

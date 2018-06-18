@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;//添加引用SQL Server;
-//<!--*《ASP.NET数据库网站设计教程（C#版）第2版》配套教学资源-刘瑞新主编-电子工业出版社2015.1 可以自由使用，但请不要删除本标志，引用请注明出处*-->
 
 public partial class NewsShow : System.Web.UI.Page
 {

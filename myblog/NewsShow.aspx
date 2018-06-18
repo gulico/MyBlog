@@ -9,7 +9,7 @@
         {
             float: left;
             width: 316px;
-            height: 100%; /*为什么不会随着右侧块而加长？？？？？？？？？？？？？？？？？？？？？？？？*/
+            height: 100%;
             background-color: #e6e8eb; /*背景色为淡蓝色,调试用，完成后最好删掉*/
             margin-bottom: 10px;
         }
@@ -28,7 +28,7 @@
         .new_news_box
         {
             width: 100%;
-            height: 100%; /*为什么不会随着右侧块而加长？？？？？？？？？？？？？？？？？？？？？？？？*/
+            height: 100%;
             margin-bottom: 10px;
         }
         /*最新博客标题*/
