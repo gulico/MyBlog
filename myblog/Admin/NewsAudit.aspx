@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" AutoEventWireup="true" CodeFile="BlogsAudit.aspx.cs" Inherits="Admin_BlogsAudit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAdmin.master" AutoEventWireup="true"
+    CodeFile="NewsAudit.aspx.cs" Inherits="Admin_NewsAudit" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-      <title>审核新闻</title>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <div id="right-frame-content">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div id="right-frame-content">
         <div class="center-title">
             关键字：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             &nbsp;<asp:Button ID="Button6" runat="server" Text="搜索" Width="54px" />
             &nbsp;
             <asp:Button ID="Button7" runat="server" Text="按发布日期" Width="86px" />
             &nbsp;<asp:Button ID="Button8" runat="server" Text="按发布者" />
-            &nbsp;<asp:Button ID="Button9" runat="server" Text="按新闻类别" Width="90px" />
+            &nbsp;<asp:Button ID="Button9" runat="server" Text="按博文类别" Width="90px" />
             &nbsp;<asp:Button ID="Button10" runat="server" Text="显示全部" Width="98px" />
         </div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="754px"
@@ -21,18 +21,18 @@
             OnRowEditing="GridView1_RowEditing">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-                <asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="新闻（单击显示具体内容）">
+                <asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="博文（单击显示具体内容）">
                     <ItemTemplate>
                         <a href="..\NewsShow.aspx?id=<%#Eval("NewsID") %>" target="_blank">
                             <%#Eval("NewsTitle").ToString().Trim().Length > 24 ? Eval("NewsTitle").ToString().Trim().Substring(0, 24) : Eval("NewsTitle").ToString().Trim()%></a>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Left"></ItemStyle>
                 </asp:TemplateField>
-                <asp:BoundField DataField="NewsCategoryName" HeaderText="新闻类别" SortExpression="NewsCategoryName"
+                <asp:BoundField DataField="NewsCategoryName" HeaderText="博文类别" SortExpression="NewsCategoryName"
                     ReadOnly="True" ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                 </asp:BoundField>
-                <asp:BoundField DataField="NewsAuthor" HeaderText="新闻来源作者" SortExpression="NewsAuthor"
+                <asp:BoundField DataField="NewsAuthor" HeaderText="博文来源作者" SortExpression="NewsAuthor"
                     ReadOnly="True" ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                 </asp:BoundField>
@@ -59,4 +59,3 @@
         </asp:GridView>
     </div>
 </asp:Content>
-

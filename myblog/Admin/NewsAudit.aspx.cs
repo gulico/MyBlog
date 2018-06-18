@@ -8,7 +8,7 @@ using System.Data;//添加引用
 using System.Configuration;//添加引用
 using System.Data.SqlClient;//添加引用
 
-public partial class Admin_BlogsAudit : System.Web.UI.Page
+public partial class Admin_NewsAudit : System.Web.UI.Page
 {
     //新闻管理
 
@@ -117,4 +117,5 @@ public partial class Admin_BlogsAudit : System.Web.UI.Page
         showAllNews();
         conn.Close();
     }
+
 }
